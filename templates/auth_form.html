@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Форма авторизации</h1>
+<form method="post" class="mb-4">
+    <div class="mb-3"><label class="form-label">Логин</label><input class="form-control" name="login"></div>
+    <div class="mb-3"><label class="form-label">Пароль</label><input class="form-control" name="password" type="password"></div>
+    <button class="btn btn-primary">Отправить</button>
+</form>
+{% if form_data %}
+<h2>Полученные параметры формы</h2>
+<table class="table table-bordered">
+{% for key, value in form_data.items() %}<tr><td>{{ key }}</td><td>{{ value }}</td></tr>{% endfor %}
+</table>
+{% endif %}
+{% endblock %}

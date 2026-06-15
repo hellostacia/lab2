@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Проверка номера телефона</h1>
+<form method="post" novalidate>
+    <div class="mb-3">
+        <label class="form-label" for="phone">Номер телефона</label>
+        <input id="phone" name="phone" value="{{ phone }}" class="form-control {% if error %}is-invalid{% endif %}">
+        {% if error %}<div class="invalid-feedback">{{ error }}</div>{% endif %}
+    </div>
+    <button class="btn btn-primary">Проверить</button>
+</form>
+{% if normalized %}
+<div class="alert alert-success mt-3">Номер корректен: {{ normalized }}</div>
+{% endif %}
+{% endblock %}
